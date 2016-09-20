@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>组织json数据请求后台</title>
+    <meta charset="utf-8">
+    <!-- 包含头部信息用于适应不同设备 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 包含 bootstrap 样式表 -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<body>
+<div class="page-header position-relative page-content">
+  <ul class="breadcrumb gray1">
+    <li> <i class="fa fa-home"></i>
+      <a href="#">当前位置：</a>
+    </li>
+    1 订单管理>
+    <li class="mactive">1.1房源发布管理</li>
+  </ul>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12  con-right">
+      <div class="con-right-bg form-horizontal">
+        <div class="rowheader">
+          <span class='gray1'>搜索条件</span>
+        </div>
+        <fieldset class='border'>
+          <div class="form-group gray1">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="width100">
+                  <select class="form-control form-control1" id="channelId" name="channelId">
+                    <option value="1">58同城</option>
+                  </select>
+                </label>
+              </div>
+              <div class="col-sm-4">
+                <label class="width100">
+                  <select class="form-control form-control1" id="matchId" name="matchId" onchange="putChange()">
+                    <option value="1">已配小区</option>
+                    <option value="2">未匹配小区</option>
+                  </select>
+                </label>
+              </div>
+              <div class="col-sm-4">
+                <label class="width100">
+                  <select class="form-control form-control1" id="putawayId" name="putawayId" onchange="shangJia()">
+                    <option value="1">已上架</option>
+                    <option value="2">未上架</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="width100">
+                  <select class="form-control form-control1" id="city" onchange="gradeChange()" name="cityId">
+                    <option value="0">请选择城市</option>
+                      <option value="${city.localid}">${city.localname}</option>
+                  </select>
+                </label>
+              </div>
+              <div class="col-sm-4">
+                <label class="width100">
+                  <select class="form-control form-control1"  id="area" onchange="gradeChangeShangQuan()" name="areaId">
+                    <option value="0">请选择行政区</option>
+                  </select>
+                </label>
+              </div>
+              <div class="col-sm-4">
+                <label class="width100">
+                  <select class="form-control form-control1"  id="shangquan" name="shangQuanId">
+                    <option value="0">请选择商圈</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="width100">
+                  <span>输入小区名称或地址：</span>
+                  <input type="text" id="areaName" name="areaName" placeholder="支持模糊搜索">
+                </label>
+              </div>
+              </div>
+          </div>
+          <div class="form-group  float_left_padding">
+            <button type="submit" class="btn btn-search no-margin lft10" onclick="checkName()">1.1.1搜索</button>
+            <span style="display: inline-block; width: 20px;"></span>
+
+          </div>
+        </fieldset>
+        <div class="rowheader">
+          <span class="gray2">列表</span>
+        </div>
+        <fieldset class='border'>
+          <div class="height40" id="totleData">
+          </div>
+          <div style="height:450px; width: 100%;" id="dateList">
+          </div>
+          <div class="am-scrollable-horizontal" id="divpage">
+
+          </div>
+          <div class="tdbumber gray1 margintop20">
+            <div style="display:inline" id="page">
+            </div>
+            <div class="float-right paddingright12">
+              <select class="form-control" id="pageSizeSelect" onchange="checkName()">
+                <option value="10" selected="selected">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+              </select>
+              &#8197;每页显示数量
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="../../bootstrap/js/jquery.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="qhingse58.js" type="text/javascript"></script>
+</body>
+</html>
