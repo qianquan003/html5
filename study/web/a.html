@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/common/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/common/bootstrap/css/reset.css">
+    <link rel="stylesheet" href="/common/bootstrap/css/SimpleCanleder.css">
+    <link rel="stylesheet" href="/common/bootstrap/css/style.css">
+    <link rel="stylesheet" href="/common/bootstrap/css/main.css">
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script src="/common/js/html5shiv.min.js"></script>
+    <script src="/common/js/respond.min.js"></script>
+    <![endif]-->
+    <!--
+     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> -->
+
+    <script src="/common/js/jquery/1.11.2/jquery.min.js"  charset="UTF-8"></script>
+    <script src="/common/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/common/bootstrap/js/SimpleCanleder.js"></script>
+    <script src="/common/bootstrap/js/jquery.timer.js"></script>
+    <script src="/common/js/attn.js"></script>
+</head>
+<body class="loginpage">
+<div class="container-fluid">
+    <div class="row">
+        <div class="loginbox">
+            <div class="loginboxinner">
+                <!-- 标题 -->
+                <h1 class="logo">上海青客考勤录用</h1>
+                <br>
+                <h3 class="slogan">后台管理系统</h3>
+                <!-- 错误信息提示 -->
+                <!-- 	<div class="nousername">
+                        <div class="loginmsg">用户名不正确</div>
+                    </div>
+                    nopassword
+ -->
+
+                <div class="nopassword"  >
+
+                    <div class="loginmsg" id="aa"  style='display:block;'  > 验证码为空！</div>
+                </div>
+                <!-- 表单 -->
+                <form class="form-horizontal" action="/login" method="post">
+                    <div class="form-group form_side">
+                        <label class="sr-only" for="inputusername">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <img src="/common/bootstrap/image/username.png">
+                            </div>
+                            <input type="text" class="form-control" id="inputusername"
+                                   placeholder="用户名" name="username" >
+                        </div>
+                    </div>
+                    <div class="form-group form_side">
+                        <label class="sr-only" for="inputpwd">password</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <img src="/common/bootstrap/image/password.png">
+                            </div>
+                            <input type="password" class="form-control" id="inputpwd"
+                                   placeholder="密码" name="password">
+                        </div>
+                    </div>
+                    <div class="form-group form_side">
+                        <div class="form-group col-md-12">
+                            <div class="input-group" style="width: 298px;">
+                                <img id="codeImg" src='/login/code' onclick="changeImg()" style="height: 50px; width: 90px;border-radius: 5px;padding-left: 2px;">
+                                <input type="text" class="form-control" id="validateCode" name="validateCode" placeholder="四位字符验证码" style="width: 205px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form_side">
+                        <button type="submit" class="btn btn-warning">登录</button>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox form_side_checkbox">
+                            <label class="checkbox" for="rememberMe">
+                                <input type="checkbox" id="rememberMe" name="rememberMe" /> 记住密码
+                            </label>
+                            <!-- <label> <input name="remeberMe" type="checkbox" checked="checked">记住密码
+                            </label>
+                            -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImg() {
+        var imgSrc = $("#codeImg");
+        var src = imgSrc.attr("src");
+        imgSrc.attr("src", chgUrl(src));
+    }
+
+    //加入时间戳，去缓存机制
+    function chgUrl(url) {
+        var timestamp = (new Date()).valueOf();if ((url.indexOf("&") >= 0)) {
+            url = url + "&timestamp=" + timestamp;
+        } else {
+            url = url + "?timestamp=" + timestamp;
+        }
+        return url;
+    }
+
+</script>
+<!-- 	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+</body>
+
+
+</html>
